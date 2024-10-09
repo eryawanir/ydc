@@ -13,14 +13,14 @@
           </svg>',
   ];
   if ($active) {
-      $class = 'flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 bg-gray-200 group';
+      $class = 'flex items-center p-2 text-gray-900  rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 bg-gray-300 dark:bg-gray-900 group';
   } else {
-      $class = 'flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group';
+      $class = 'flex items-center p-2 text-gray-900 rounded-lg dark:text-gray-400  hover:bg-gray-100 dark:hover:bg-gray-700 group';
   }
 @endphp
 
 <li>
-  <a href="{{ $route }}" class="{{ $class }}">
+  <a href="{{ $route }}" class="{{ $class }} ">
     {!! $logo_data[$menu] !!}
     <span class="ms-3">{{ $slot }}</span>
   </a>
