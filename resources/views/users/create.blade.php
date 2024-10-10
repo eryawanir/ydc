@@ -11,7 +11,60 @@
     </ul>
 
 
+    <form method="POST" action="{{ route('super-admin.users.store') }}" class="max-w-xl m-4">
+      @csrf
 
+      <!-- Name -->
+      <div>
+        <x-input-label for="name" :value="__('Name')" />
+        <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+        <x-input-error :messages="$errors->get('name')" class="mt-2" />
+      </div>
+
+      {{-- No WhatsApp --}}
+      <div class="mt-4">
+        <x-input-label for="phone_number" value="No WhatsApp" />
+        <x-text-input id="phone_number" class="block mt-1 w-full" type="text" value="628" name="phone_number" required />
+        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+          Format harus seperti ini >> 6285864273455</p>
+        <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
+      </div>
+
+      <!-- Username -->
+      <div class="mt-4 inline-block">
+        <x-input-label for="username" :value="__('Username')" />
+        <x-text-input id="username" class="block mt-1 w-full" type="text" name="username" required />
+        <x-input-error :messages="$errors->get('username')" class="mt-2" />
+      </div>
+      {{-- Role --}}
+      <div class="inline-block ms-2">
+        <x-input-label for="role" :value="__('Role')" />
+        <x-select class="block mt-1 w-36" name="role">
+          <option selected>Pilih role</option>
+          <option value="">Dokter</option>
+          <option value="">Admin</option>
+        </x-select>
+        <x-input-error :messages="$errors->get('name')" class="mt-2" />
+      </div>
+
+      <!-- Password -->
+      <div class="mt-4">
+        <x-input-label for="password" :value="__('Password')" />
+
+        <x-text-input id="password" class="block mt-1 w-full" type="text" value="1234ganti" name="password" required />
+        <x-input-error :messages="$errors->get('password')" class="mt-2" />
+      </div>
+
+      <div class="flex items-center justify-end mt-4">
+        <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
+          {{ __('Already registered?') }}
+        </a>
+
+        <x-primary-button class="ms-4">
+          {{ __('Register') }}
+        </x-primary-button>
+      </div>
+    </form>
 
   </div>
 
