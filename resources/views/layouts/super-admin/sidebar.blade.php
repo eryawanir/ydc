@@ -9,6 +9,9 @@
       <x-sidebar.menu :route="route('super-admin.layanans.index')" :active="request()->routeIs('super-admin.layanans.*')" menu="dashboard">
         Layanan
       </x-sidebar.menu>
+      <x-sidebar.menu :route="route('super-admin.tindakans.index')" :active="request()->routeIs('super-admin.tindakans.*')" menu="dashboard">
+        Tindakan
+      </x-sidebar.menu>
 
 
     </ul>

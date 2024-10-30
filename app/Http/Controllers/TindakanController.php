@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Layanan;
 use App\Models\Tindakan;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,9 @@ class TindakanController extends Controller
      */
     public function index()
     {
-        //
+        return view('tindakans.index', [
+            'tindakans' => Tindakan::all()
+        ]);
     }
 
     /**
@@ -20,7 +23,9 @@ class TindakanController extends Controller
      */
     public function create()
     {
-        //
+        return view('tindakans.create', [
+            'layanans' => Layanan::orderBy('jenis')->get()
+        ]);
     }
 
     /**
@@ -28,7 +33,12 @@ class TindakanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'layanan_id' => 'required',
+        ]);
+        $layanan = Layanan::create($validateData);
+
+        return redirect()->route('super-admin.layanans.index');
     }
 
     /**
