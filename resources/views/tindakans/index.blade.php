@@ -17,17 +17,27 @@
         <tr>
           <th>
             <span class="flex items-center">
-              Jenis
+              Tindakan
             </span>
           </th>
           <th>
             <span class="flex items-center">
-              Nama
+              Dokter
             </span>
           </th>
           <th>
             <span class="flex items-center">
-              Harga
+              Bahan
+            </span>
+          </th>
+          <th>
+            <span class="flex items-center">
+              ZIS
+            </span>
+          </th>
+          <th>
+            <span class="flex items-center">
+              Pribadi
             </span>
           </th>
         </tr>
@@ -38,10 +48,14 @@
 
             <td>
 
-              {{ $tindakan->layanan_id }}
+              {{ $tindakan->layanan->nama }} - {{ $tindakan->layanan->nama_jenis }}
 
             </td>
-            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $tindakan->created_at }}</td>
+            <td>{{ $tindakan->utk_dokter }}</td>
+            <td>{{ $tindakan->utk_bahan }}</td>
+            <td>{{ $tindakan->utk_zis }}</td>
+            <td>{{ $tindakan->utk_pribadi }}</td>
+            {{-- <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $tindakan->created_at }}</td> --}}
 
 
           </tr>

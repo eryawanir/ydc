@@ -9,4 +9,9 @@ class Tindakan extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function layanan()
+    {
+        return $this->belongsTo(Layanan::class);
+    }
 }

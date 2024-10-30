@@ -14,8 +14,8 @@
       @csrf
 
       <div>
-        <x-input-label for="layanan" value="Tindakan" />
-        <x-select class="mt-1" id="layanan" name="layanan_id">
+        <x-input-label for="layanan_id" value="Tindakan" />
+        <x-select class="mt-1" id="layanan_id" name="layanan_id">
           <option value="" selected>Pilih</option>
           @foreach ($layanans as $layanan)
             <option value="{{ $layanan->id }}">{{ $layanan->nama_jenis }} - {{ $layanan->nama }}</option>

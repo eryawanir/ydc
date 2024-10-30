@@ -36,9 +36,34 @@ class TindakanController extends Controller
         $validateData = $request->validate([
             'layanan_id' => 'required',
         ]);
-        $layanan = Layanan::create($validateData);
+        $tindakan  = new Tindakan;
+        $tindakan->layanan_id = $validateData['layanan_id'];
+        $layanan = Layanan::find($tindakan->layanan_id);
+        $jenis = $layanan->jenis;
+        if ($jenis == 1) {
+            $tindakan->utk_dokter = $tindakan->layanan->harga * 0.35;
+            $tindakan->utk_bahan = $tindakan->layanan->harga * 0.30;
+            $tindakan->utk_zis = $tindakan->layanan->harga * 0.025;
+            $tindakan->utk_pribadi = $tindakan->layanan->harga * 0.325;
+        } elseif ($jenis == 2) {
+            $tindakan->utk_dokter = $tindakan->layanan->harga * 0.35;
+            $tindakan->utk_bahan = $tindakan->layanan->harga * 0.30;
+            $tindakan->utk_zis = $tindakan->layanan->harga * 0.025;
+            $tindakan->utk_pribadi = $tindakan->layanan->harga * 0.325;
+        } elseif ($jenis == 3) {
+            $tindakan->utk_dokter = $tindakan->layanan->harga * 0.35;
+            $tindakan->utk_bahan = $tindakan->layanan->harga * 0.30;
+            $tindakan->utk_zis = $tindakan->layanan->harga * 0.025;
+            $tindakan->utk_pribadi = $tindakan->layanan->harga * 0.325;
+        } elseif ($tindakan->layanan->jenis == 3) {
+            $tindakan->utk_dokter = $tindakan->layanan->harga * 0.35;
+            $tindakan->utk_bahan = $tindakan->layanan->harga * 0.30;
+            $tindakan->utk_zis = $tindakan->layanan->harga * 0.025;
+            $tindakan->utk_pribadi = $tindakan->layanan->harga * 0.325;
+        }
 
-        return redirect()->route('super-admin.layanans.index');
+        $tindakan->save();
+        return redirect()->route('super-admin.tindakans.index');
     }
 
     /**
