@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('super-admin')->name('super-admin.')->group(function () {
     Route::resource('users', UserController::class);
-    Route::resource('layanan', LayananController::class);
+    Route::resource('layanans', LayananController::class);
 });
 
 Route::get('/', HomeController::class)->name('home');

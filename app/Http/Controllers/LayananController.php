@@ -22,7 +22,7 @@ class LayananController extends Controller
      */
     public function create()
     {
-        //
+        return view('layanans.create');
     }
 
     /**
@@ -30,7 +30,13 @@ class LayananController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'nama' => 'required',
+            'jenis' => 'required',
+            'harga' => 'required|integer',
+        ]);
+        $layanan = Layanan::create($validateData);
+        return redirect()->route('super-admin.layanans.index');
     }
 
     /**

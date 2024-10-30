@@ -6,6 +6,9 @@
       <x-sidebar.menu :route="route('super-admin.users.index')" :active="request()->routeIs('super-admin.users.*')" menu="user">
         User
       </x-sidebar.menu>
+      <x-sidebar.menu :route="route('super-admin.layanans.index')" :active="request()->routeIs('super-admin.layanans.*')" menu="dashboard">
+        Layanan
+      </x-sidebar.menu>
 
 
     </ul>
