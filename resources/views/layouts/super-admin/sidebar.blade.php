@@ -3,6 +3,9 @@
     <ul class="space-y-2
        font-medium">
 
+      <x-sidebar.menu :route="route('super-admin.pasiens.index')" :active="request()->routeIs('super-admin.pasiens.*')" menu="dashboard">
+        Pasien
+      </x-sidebar.menu>
       <x-sidebar.menu :route="route('super-admin.users.index')" :active="request()->routeIs('super-admin.users.*')" menu="user">
         User
       </x-sidebar.menu>
