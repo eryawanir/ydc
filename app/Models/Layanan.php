@@ -23,5 +23,22 @@ class Layanan extends Model
                 get: fn() => "Tindakan Lab"
             );
         }
+        } elseif ($this->attributes['jenis'] == 2) {
+            return Attribute::make(
+                get: fn() => "Tindakan Lab"
+            );
+        }
+    }
+    protected function persenanDokter(): Attribute
+    {
+        if ($this->attributes['jenis'] == 1) {
+            return Attribute::make(
+                get: fn() => 0.35
+            );
+        } elseif ($this->attributes['jenis'] == 2) {
+            return Attribute::make(
+                get: fn() => "Tindakan Lab"
+            );
+        }
     }
 }

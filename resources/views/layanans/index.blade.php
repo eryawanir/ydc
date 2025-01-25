@@ -41,7 +41,7 @@
               {{ $layanan->nama_jenis }}
 
             </td>
-            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $layanan->nama }}</td>
+            <td>{{ $layanan->nama }}</td>
 
             <td>{{ $layanan->harga }}</td>
 
