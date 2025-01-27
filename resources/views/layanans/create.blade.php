@@ -13,23 +13,25 @@
     <form method="POST" action="{{ route('super-admin.layanans.store') }}" class="max-w-xl m-4">
       @csrf
 
-      <div>
+
+              <!-- Nama Tindakan -->
+      <div class="mt-3">
+        <x-input-label for="nama" value="Nama Tindakan" />
+        <x-text-input id="nama" class="block mt-1 w-full" type="text" name="nama" :value="old('nama')" autofocus autocomplete="off" />
+        <x-input-error :messages="$errors->get('nama')" class="mt-2" />
+      </div>
+      <div class="mt-3">
         <x-input-label for="jenis" value="Jenis Tindakan" />
         <x-select class="mt-1" id="jenis" name="jenis">
           <option value="" selected>Pilih</option>
-          <option value="1">Umum</option>
-          <option value="2">Lab</option>
-          <option value="3">Bedah</option>
-          <option value="4">Veneer/orto/bleeching</option>
+          <option value="1">Umum 35%</option>
+          <option value="2">Lab 60%</option>
+          <option value="3">Bedah 55%</option>
+          <option value="4">Veneer/orto/bleeching 40%</option>
         </x-select>
         <x-input-error :messages="$errors->get('jenis')" class="mt-2" />
       </div>
-      <!-- Nama Tindakan -->
-      <div class="mt-3">
-        <x-input-label for="name" value="Nama Tindakan" />
-        <x-text-input id="name" class="block mt-1 w-full" type="text" name="nama" :value="old('nama')" autofocus autocomplete="off" />
-        <x-input-error :messages="$errors->get('nama')" class="mt-2" />
-      </div>
+
       <!-- Harga -->
       <div class="mt-3">
         <x-input-label for="harga" value="Harga" />

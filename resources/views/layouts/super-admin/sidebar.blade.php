@@ -6,12 +6,13 @@
       <x-sidebar.menu :route="route('super-admin.pasiens.index')" :active="request()->routeIs('super-admin.pasiens.*')" menu="dashboard">
         Pasien
       </x-sidebar.menu>
+      <x-sidebar.menu :route="route('super-admin.pasiens.index')" :active="request()->routeIs('super-admin.pasiens.*')" menu="dashboard">
+        Rekam Medis
+      </x-sidebar.menu>
       <x-sidebar.menu :route="route('super-admin.dokters.index')" :active="request()->routeIs('super-admin.dokters.*')" menu="dashboard">
         Dokter
       </x-sidebar.menu>
-      <x-sidebar.menu :route="route('super-admin.users.index')" :active="request()->routeIs('super-admin.users.*')" menu="user">
-        User
-      </x-sidebar.menu>
+
       <x-sidebar.menu :route="route('super-admin.layanans.index')" :active="request()->routeIs('super-admin.layanans.*')" menu="dashboard">
         Layanan
       </x-sidebar.menu>
@@ -19,6 +20,9 @@
         Tindakan
       </x-sidebar.menu>
 
+      {{-- <x-sidebar.menu :route="route('super-admin.users.index')" :active="request()->routeIs('super-admin.users.*')" menu="user">
+        User
+      </x-sidebar.menu> --}}
 
     </ul>
   </div>

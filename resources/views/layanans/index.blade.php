@@ -38,7 +38,7 @@
 
             <td>
 
-              {{ $layanan->nama_jenis }}
+              {{ $layanan->nama_jenis }} {{ $layanan->persenanDokter*100 }}%
 
             </td>
             <td>{{ $layanan->nama }}</td>

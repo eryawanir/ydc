@@ -23,9 +23,14 @@ class Layanan extends Model
                 get: fn() => "Tindakan Lab"
             );
         }
-        } elseif ($this->attributes['jenis'] == 2) {
+         elseif ($this->attributes['jenis'] == 3) {
             return Attribute::make(
-                get: fn() => "Tindakan Lab"
+                get: fn() => "Tindakan Bedah"
+            );
+        }
+         elseif ($this->attributes['jenis'] == 4) {
+            return Attribute::make(
+                get: fn() => "Veener/ortho/bleching"
             );
         }
     }
@@ -37,7 +42,17 @@ class Layanan extends Model
             );
         } elseif ($this->attributes['jenis'] == 2) {
             return Attribute::make(
-                get: fn() => "Tindakan Lab"
+                get: fn() => 0.6
+            );
+        }
+         elseif ($this->attributes['jenis'] == 3) {
+            return Attribute::make(
+                get: fn() => 0.55
+            );
+
+        } elseif ($this->attributes['jenis'] == 2) {
+            return Attribute::make(
+                get: fn() => 0.4
             );
         }
     }
