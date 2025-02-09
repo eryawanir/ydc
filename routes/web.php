@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TindakanController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\DokterController;
+use App\Http\Controllers\RekamMedisController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,8 @@ Route::prefix('super-admin')->name('super-admin.')->group(function () {
     Route::resource('tindakans', TindakanController::class);
     Route::resource('pasiens', PasienController::class);
     Route::resource('dokters', DokterController::class);
+    Route::resource('rekam-medis', RekamMedisController::class)->except(['create']);
+    Route::get('/rekam-medis/create/{pasien}', [RekamMedisController::class, 'create'])->name('rekam-medis.create');
 });
 
 Route::get('/', HomeController::class)->name('home');

@@ -6,7 +6,7 @@
       <x-sidebar.menu :route="route('super-admin.pasiens.index')" :active="request()->routeIs('super-admin.pasiens.*')" menu="dashboard">
         Pasien
       </x-sidebar.menu>
-      <x-sidebar.menu :route="route('super-admin.pasiens.index')" :active="request()->routeIs('super-admin.pasiens.*')" menu="dashboard">
+      <x-sidebar.menu :route="route('super-admin.rekam-medis.index')" :active="request()->routeIs('super-admin.rekam-medis.*')" menu="dashboard">
         Rekam Medis
       </x-sidebar.menu>
       <x-sidebar.menu :route="route('super-admin.dokters.index')" :active="request()->routeIs('super-admin.dokters.*')" menu="dashboard">
