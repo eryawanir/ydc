@@ -44,7 +44,7 @@
             <div class="mt-1">
                 <x-input-label for="keluhan" value="Keluhan" />
                 <x-text-input id="keluhan" class="block mt-1 w-full" type="text" name="keluhan"
-                    value="{{ $rm->keluhan }}" autocomplete="off" />
+                    value="{{ $rm->keluhan }} {{ $rm->tindakans[0]->lokasi }}" autocomplete="off" />
                 <x-input-error :messages="$errors->get('keluhan')" class="mt-2" />
             </div>
 
