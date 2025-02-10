@@ -58,7 +58,8 @@ class RekamMedisController extends Controller
         return view('rekam-medis.edit', [
             'pasien' => $rm->pasien,
             'dokters' => Dokter::all(),
-            'rm' => $rm
+            'rm' => $rm,
+            'total' => 0
         ]);
     }
 

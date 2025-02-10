@@ -44,7 +44,7 @@
             <div class="mt-1">
                 <x-input-label for="keluhan" value="Keluhan" />
                 <x-text-input id="keluhan" class="block mt-1 w-full" type="text" name="keluhan"
-                    value="{{ $rm->keluhan }} {{ $rm->tindakans[0]->lokasi }}" autocomplete="off" />
+                    value="{{ $rm->keluhan }}" autocomplete="off" />
                 <x-input-error :messages="$errors->get('keluhan')" class="mt-2" />
             </div>
 
@@ -93,20 +93,39 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-                                <td class="px-6 py-4">
-                                    Gigi 27
+                            @forelse ($rm->tindakans as $tindakan)
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+                                    <td class="px-6 py-4">
+                                        {{ $tindakan->lokasi }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $tindakan->diagnosa }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $tindakan->layanan->nama }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $tindakan->layanan->harga }}
+                                    </td>
+                                </tr>
+                                @php
+                                    $total += $tindakan->layanan->harga;
+                                @endphp
+                            @empty
+                                <td colspan="4" class="text-center">Tidak ada data...</td>
+                            @endforelse
+
+                            <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 font-bold">
+                                <td colspan="3" class="px-6 py-4 text-end fontb">
+                                    Total
                                 </td>
                                 <td class="px-6 py-4">
-                                    Karies Dentin
-                                </td>
-                                <td class="px-6 py-4">
-                                    Tambal Sementara
-                                </td>
-                                <td class="px-6 py-4">
-                                    100000
+                                    {{ $total }}
                                 </td>
                             </tr>
+
+
                         </tbody>
                     </table>
                 </div>
