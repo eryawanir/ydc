@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Layanan;
+use App\Models\RekamMedis;
 use App\Models\Tindakan;
 use Illuminate\Http\Request;
 
@@ -13,18 +14,22 @@ class TindakanController extends Controller
      */
     public function index()
     {
-        return view('tindakans.index', [
-            'tindakans' => Tindakan::all()
-        ]);
+        return view(
+            'tindakans.index',
+            [
+                'tindakans' => Tindakan::all()
+            ]
+        );
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(RekamMedis $rekamMedi)
     {
         return view('tindakans.create', [
-            'layanans' => Layanan::orderBy('jenis')->get()
+            'layanans' => Layanan::orderBy('jenis')->get(),
+            'rm' => $rekamMedi
         ]);
     }
 
@@ -33,37 +38,14 @@ class TindakanController extends Controller
      */
     public function store(Request $request)
     {
-        $validateData = $request->validate([
-            'layanan_id' => 'required',
-        ]);
-        $tindakan  = new Tindakan;
-        $tindakan->layanan_id = $validateData['layanan_id'];
-        $layanan = Layanan::find($tindakan->layanan_id);
-        $jenis = $layanan->jenis;
-        if ($jenis == 1) {
-            $tindakan->utk_dokter = $tindakan->layanan->harga * 0.35;
-            $tindakan->utk_bahan = $tindakan->layanan->harga * 0.30;
-            $tindakan->utk_zis = $tindakan->layanan->harga * 0.025;
-            $tindakan->utk_pribadi = $tindakan->layanan->harga * 0.325;
-        } elseif ($jenis == 2) {
-            $tindakan->utk_dokter = $tindakan->layanan->harga * 0.35;
-            $tindakan->utk_bahan = $tindakan->layanan->harga * 0.30;
-            $tindakan->utk_zis = $tindakan->layanan->harga * 0.025;
-            $tindakan->utk_pribadi = $tindakan->layanan->harga * 0.325;
-        } elseif ($jenis == 3) {
-            $tindakan->utk_dokter = $tindakan->layanan->harga * 0.35;
-            $tindakan->utk_bahan = $tindakan->layanan->harga * 0.30;
-            $tindakan->utk_zis = $tindakan->layanan->harga * 0.025;
-            $tindakan->utk_pribadi = $tindakan->layanan->harga * 0.325;
-        } elseif ($tindakan->layanan->jenis == 3) {
-            $tindakan->utk_dokter = $tindakan->layanan->harga * 0.35;
-            $tindakan->utk_bahan = $tindakan->layanan->harga * 0.30;
-            $tindakan->utk_zis = $tindakan->layanan->harga * 0.025;
-            $tindakan->utk_pribadi = $tindakan->layanan->harga * 0.325;
-        }
-
+        $tindakan = new Tindakan;
+        $tindakan->rekam_medis_id = $request->rekam_medis_id;
+        $tindakan->layanan_id = $request->layanan_id;
+        $tindakan->diagnosa = $request->diagnosa;
+        $tindakan->lokasi = $request->lokasi;
         $tindakan->save();
-        return redirect()->route('super-admin.tindakans.index');
+
+        return redirect()->route('super-admin.rekam-medis.edit', $request->rekam_medis_id);
     }
 
     /**

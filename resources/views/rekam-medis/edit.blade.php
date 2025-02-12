@@ -70,11 +70,11 @@
             <div class="mt-2">
                 <x-input-label for="tindakan" value="Daftar tindakan" />
 
-                <button type="button"
+                <a href="{{ route('super-admin.tindakans.create', $rm) }}"
                     class="px-3 py-2 text-xs font-medium text-center text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
                     + Tambah Tindakan
-                </button>
-                <div class="relative overflow-x-auto">
+                </a>
+                <div class="mt-4 relative overflow-x-auto">
                     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
@@ -112,7 +112,7 @@
                                     $total += $tindakan->layanan->harga;
                                 @endphp
                             @empty
-                                <td colspan="4" class="text-center">Tidak ada data...</td>
+                                <td colspan="3" class="text-center">Tidak ada data...</td>
                             @endforelse
 
                             <tr

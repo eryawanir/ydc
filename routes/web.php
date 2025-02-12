@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('super-admin')->name('super-admin.')->group(function () {
     Route::resource('users', UserController::class);
     Route::resource('layanans', LayananController::class);
-    Route::resource('tindakans', TindakanController::class);
+    Route::resource('tindakans', TindakanController::class)->except(['create']);
+    Route::get('/tindakans/create/{rekam_medi}', [TindakanController::class, 'create'])->name('tindakans.create');
     Route::resource('pasiens', PasienController::class);
     Route::resource('dokters', DokterController::class);
     Route::resource('rekam-medis', RekamMedisController::class)->except(['create']);
