@@ -32,7 +32,8 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        User::create($request->validated());
+        User::create($request->all());
+        return redirect()->route('super-admin.users.index');
     }
 
     /**

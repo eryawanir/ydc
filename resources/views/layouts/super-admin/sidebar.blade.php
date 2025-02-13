@@ -24,9 +24,9 @@
             </x-sidebar.menu>
 
 
-            {{-- <x-sidebar.menu :route="route('super-admin.users.index')" :active="request()->routeIs('super-admin.users.*')" menu="user">
-        User
-      </x-sidebar.menu> --}}
+            <x-sidebar.menu :route="route('super-admin.users.index')" :active="request()->routeIs('super-admin.users.*')" menu="user">
+                User
+            </x-sidebar.menu>
 
         </ul>
     </div>
