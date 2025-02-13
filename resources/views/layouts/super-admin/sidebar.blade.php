@@ -1,31 +1,35 @@
-<aside id="default-sidebar" class="z fixed mt-16 dark:border-t border-gray-300 dark:border-gray-700 top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
-  <div class="h-full pl-7 pr-3 py-4 overflow-y-auto bg-gray-200 dark:bg-gray-800">
-    <ul class="space-y-2
+<aside id="default-sidebar"
+    class="z fixed mt-16 dark:border-t border-gray-300 dark:border-gray-700 top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+    aria-label="Sidebar">
+    <div class="h-full pl-7 pr-3 py-4 overflow-y-auto bg-gray-200 dark:bg-gray-800">
+        <ul class="space-y-2
        font-medium">
 
-      <x-sidebar.menu :route="route('super-admin.pasiens.index')" :active="request()->routeIs('super-admin.pasiens.*')" menu="dashboard">
-        Pasien
-      </x-sidebar.menu>
-      <x-sidebar.menu :route="route('super-admin.rekam-medis.index')" :active="request()->routeIs('super-admin.rekam-medis.*')" menu="dashboard">
-        Rekam Medis
-      </x-sidebar.menu>
-      <x-sidebar.menu :route="route('super-admin.dokters.index')" :active="request()->routeIs('super-admin.dokters.*')" menu="dashboard">
-        Dokter
-      </x-sidebar.menu>
+            <x-sidebar.menu :route="route('super-admin.pasiens.index')" :active="request()->routeIs('super-admin.pasiens.*')" menu="dashboard">
+                Pasien
+            </x-sidebar.menu>
+            <x-sidebar.menu :route="route('super-admin.rekam-medis.index')" :active="request()->routeIs('super-admin.rekam-medis.*') || request()->routeIs('super-admin.tindakans.*')" menu="dashboard">
+                Rekam Medis
+            </x-sidebar.menu>
+            <x-sidebar.menu :route="route('super-admin.bagi-hasil.index')" :active="request()->routeIs('super-admin.bagi-hasil.*')" menu="dashboard">
+                Bagi Hasil
+            </x-sidebar.menu>
 
-      <x-sidebar.menu :route="route('super-admin.layanans.index')" :active="request()->routeIs('super-admin.layanans.*')" menu="dashboard">
-        Layanan
-      </x-sidebar.menu>
-      <x-sidebar.menu :route="route('super-admin.tindakans.index')" :active="request()->routeIs('super-admin.tindakans.*')" menu="dashboard">
-        Tindakan
-      </x-sidebar.menu>
+            <x-sidebar.menu :route="route('super-admin.dokters.index')" :active="request()->routeIs('super-admin.dokters.*')" menu="dashboard">
+                Dokter
+            </x-sidebar.menu>
 
-      {{-- <x-sidebar.menu :route="route('super-admin.users.index')" :active="request()->routeIs('super-admin.users.*')" menu="user">
+            <x-sidebar.menu :route="route('super-admin.layanans.index')" :active="request()->routeIs('super-admin.layanans.*')" menu="dashboard">
+                Layanan
+            </x-sidebar.menu>
+
+
+            {{-- <x-sidebar.menu :route="route('super-admin.users.index')" :active="request()->routeIs('super-admin.users.*')" menu="user">
         User
       </x-sidebar.menu> --}}
 
-    </ul>
-  </div>
+        </ul>
+    </div>
 </aside>
 {{--
 <div class="p-4 sm:ml-64">

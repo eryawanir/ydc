@@ -14,4 +14,8 @@ class Tindakan extends Model
     {
         return $this->belongsTo(Layanan::class);
     }
+    public function rekam_medis()
+    {
+        return $this->belongsTo(RekamMedis::class);
+    }
 }

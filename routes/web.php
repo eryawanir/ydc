@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BagiHasilController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\ProfileController;
@@ -19,6 +20,7 @@ Route::prefix('super-admin')->name('super-admin.')->group(function () {
     Route::resource('dokters', DokterController::class);
     Route::resource('rekam-medis', RekamMedisController::class)->except(['create']);
     Route::get('/rekam-medis/create/{pasien}', [RekamMedisController::class, 'create'])->name('rekam-medis.create');
+    Route::get('/bagi-hasil', [BagiHasilController::class, 'index'])->name('bagi-hasil.index');
 });
 
 Route::get('/', HomeController::class)->name('home');

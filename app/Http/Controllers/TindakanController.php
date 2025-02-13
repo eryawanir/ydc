@@ -45,6 +45,13 @@ class TindakanController extends Controller
         $tindakan->lokasi = $request->lokasi;
         $tindakan->save();
 
+        $uang_masuk = $tindakan->layanan->harga;
+        $fee_dokter =  $uang_masuk * $tindakan->layanan->persenanDokter;
+        $tindakan->uang_masuk = $uang_masuk;
+        $tindakan->fee_dokter = $fee_dokter;
+        $tindakan->pendapatan_klinik = $uang_masuk - $fee_dokter;
+        $tindakan->save();
+
         return redirect()->route('super-admin.rekam-medis.edit', $request->rekam_medis_id);
     }
 

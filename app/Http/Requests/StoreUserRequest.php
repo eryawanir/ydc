@@ -21,13 +21,6 @@ class StoreUserRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'name' => 'required|alpha:ascii',
-            'phone_number' => ['regex:/^(62)8[1-9][0-9]{6,9}$/'],
-            'username' => 'required|alpha_num:ascii',
-            'role' => 'required',
-            'password' => 'required|min:5'
-
-        ];
+        return [];
     }
 }
