@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function __invoke(Request $request)
     {
         if (Auth::check()) {
-            return redirect()->route('super-admin.users.index');
+            return redirect()->route('super-admin.pasiens.create');
         } else {
             return redirect()->route('login');
         }

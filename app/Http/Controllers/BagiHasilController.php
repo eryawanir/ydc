@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dokter;
+use App\Models\RekamMedis;
 use App\Models\Tindakan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -22,7 +23,12 @@ class BagiHasilController extends Controller
             })->when($tahun, function ($query, $tahun) {
                 $query->whereYear('waktu_kunjungan', $tahun);
             });
-        })->get();
+        })->orderBy(
+            RekamMedis::select('waktu_kunjungan')
+                ->whereColumn('rekam_medis.id', 'tindakans.rekam_medis_id'),
+            'desc'
+
+        )->get();
         return view('bagi-hasil.index', [
             'tindakans' => $tindakans,
             'dokters' => Dokter::all(),

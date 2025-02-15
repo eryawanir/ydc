@@ -15,7 +15,7 @@ class RekamMedisController extends Controller
     public function index()
     {
         return view('rekam-medis.index', [
-            'rekam_medis' => RekamMedis::all()
+            'rekam_medis' => RekamMedis::with(['dokter', 'pasien'])->latest()->get()
         ]);
     }
 

@@ -65,17 +65,32 @@
                 <tr>
                     <th>
                         <span class="flex items-center">
-                            Nama
+                            Waktu Tindakan
                         </span>
                     </th>
                     <th>
                         <span class="flex items-center">
-                            Jenis Kelamin
+                            Dokter
                         </span>
                     </th>
                     <th>
                         <span class="flex items-center">
-                            Tanggal Lahir
+                            Nama Tindakan
+                        </span>
+                    </th>
+                    <th>
+                        <span class="flex items-center">
+                            Fee Dokter
+                        </span>
+                    </th>
+                    <th>
+                        <span class="flex items-center">
+                            Pendapatan Klinik
+                        </span>
+                    </th>
+                    <th>
+                        <span class="flex items-center">
+                            Uang Masuk
                         </span>
                     </th>
 
@@ -84,13 +99,14 @@
             <tbody>
                 @forelse ($tindakans as $tindakan)
                     <tr>
-                        <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                {{ $tindakan->rekam_medis->waktu_kunjungan }}
-                            </a>
+                        <td>
+                            {{ $tindakan->rekam_medis->waktu_kunjungan }}
                         </td>
                         <td>{{ $tindakan->rekam_medis->dokter->nama }}</td>
                         <td>{{ $tindakan->layanan->nama }}</td>
+                        <td>{{ $tindakan->fee_dokter }}</td>
+                        <td>{{ $tindakan->pendapatan_klinik }}</td>
+                        <td>{{ $tindakan->uang_masuk }}</td>
                     </tr>
                 @empty
                 @endforelse

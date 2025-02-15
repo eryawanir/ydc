@@ -13,7 +13,7 @@ class PasienController extends Controller
     public function index()
     {
         return view('pasiens.index', [
-            'pasiens' => Pasien::all()
+            'pasiens' => Pasien::latest()->get()
         ]);
     }
 
@@ -47,7 +47,7 @@ class PasienController extends Controller
      */
     public function edit(Pasien $pasien)
     {
-        return view('pasiens.edit',['pasien' => $pasien]);
+        return view('pasiens.edit', ['pasien' => $pasien]);
     }
 
     /**
